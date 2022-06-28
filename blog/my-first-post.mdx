@@ -1,19 +1,62 @@
 ---
-title: "포스트2"
+title: "RESTful API 설계"
 date: "2021-07-23"
 ---
 
-This is my first blog post! Isn't it _great_?
-Some of my **favorite** things are:
+# URL Rules
 
-- Petting dogs
-- Singing
-- Eating potato-based foods
+### 1. 마지막에 / 포함하지 않는다.
 
-# 대제목
+**Bad**
 
-## 중제목
+> http://api.test.com/users/
 
-### 소제목
+**Good**
 
-- 마크다운!!!
+> http://api.test.com/users
+
+### 2. \_(underbar) 대신 -(dash)를 사용한다.
+
+**Bad**
+
+> http://api.test.com/users/post_commnets
+
+**Good**
+
+> http://api.test.com/users/post-commnets
+
+### 3. 소문자를 사용한다.
+
+**Bad**
+
+> http://api.test.com/users/postCommnets
+
+**Good**
+
+> http://api.test.com/users/post-commnets
+
+### 4. 행위(method)는 URL에 포함하지 않는다.
+
+**Bad**
+
+> POST http://api.test.com/users/1/delete-post/1
+
+**Good**
+
+> DELETE http://api.test.com/users/1/posts/1
+
+### 5. 컨트롤 자원을 의미하는 URL은 예외적으로 동사를 허용한다.
+
+**Bad**
+
+> http://api.test.com/posts/duplicating
+
+**Good**
+
+> http://api.test.com/posts/duplicate
+
+---
+
+### Ref.
+
+https://wiki.sansae.net/pages/viewpage.action?pageId=25198604
